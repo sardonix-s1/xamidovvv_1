@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#07080a" />
+    <title>Sardor — Xamidovvv · Building from ideas.</title>
+    <meta
+      name="description"
+      content="Sardor, online as Xamidovvv. A personal corner of the internet: learning, technology, music, games, and building from ideas."
+    />
+    <style>
+      /* First paint + no-JavaScript fallback. The app's own styles replace this once loaded. */
+      html { background: #07080a; color: #eceef1; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+      body { margin: 0; }
+      .boot { min-height: 100svh; display: grid; align-content: center; gap: 8px; padding: 24px; }
+      .boot h1 { margin: 0; font-weight: 300; font-size: clamp(56px, 14vw, 160px); letter-spacing: -0.05em; line-height: 0.9; }
+      .boot p { margin: 0; color: #a7aeb8; }
+      .boot a { color: #eceef1; }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Xamidovvv" />
+    <meta property="og:title" content="Sardor — Xamidovvv · Building from ideas." />
+    <meta
+      property="og:description"
+      content="A personal corner of the internet: learning, technology, music, games, and building from ideas."
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div id="root">
+      <!-- Shown only until the app mounts, and as the no-JavaScript fallback. -->
+      <main class="boot">
+        <h1>Sardor</h1>
+        <p>Xamidovvv</p>
+        <p>Building from ideas.</p>
+        <p>
+          <a href="https://t.me/xamidovvv_09" rel="noopener noreferrer">Telegram</a> ·
+          <a
+            href="https://www.tiktok.com/@sard_onix?_r=1&amp;_t=ZS-9AbkQl36CU0"
+            rel="noopener noreferrer"
+            >TikTok</a
+          >
+          ·
+          <a
+            href="https://www.instagram.com/xamidovvv.09?srtk=MXB1cXN0bnpnNHMwZQ=="
+            rel="noopener noreferrer"
+            >Instagram</a
+          >
+        </p>
+      </main>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

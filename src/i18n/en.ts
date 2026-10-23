@@ -1,0 +1,127 @@
+/** English UI strings and page content. The Russian dictionary (ru.ts) must match this shape. */
+export const en = {
+  meta: {
+    title: 'Sardor — Xamidovvv · Building from ideas.',
+    description:
+      'Sardor, online as Xamidovvv. A personal corner of the internet: learning, technology, music, games, and building from ideas.',
+    locale: 'en_US',
+  },
+  nav: {
+    skip: 'Skip to content',
+    label: 'Primary',
+    home: 'Xamidovvv — back to the top',
+    about: 'About',
+    projects: 'Projects',
+    skills: 'Skills',
+    interests: 'Interests',
+    contact: 'Contact',
+    openMenu: 'Open menu',
+    closeMenu: 'Close menu',
+  },
+  lang: {
+    label: 'Language',
+    en: 'English',
+    ru: 'Русский',
+  },
+  hero: {
+    intro: 'A quiet corner of the internet for ideas in progress.',
+    explore: 'Explore',
+    contactLabel: 'Find me on',
+  },
+  about: {
+    kicker: 'About',
+    heading: 'Hello, I’m Sardor.',
+    paragraphs: [
+      'Online, I’m Xamidovvv.',
+      'I like learning new things, technology, games and music — and I like watching an idea slowly turn into something real.',
+      'This page is a small, personal corner of the internet. It will grow as I do.',
+    ],
+  },
+  projects: {
+    kicker: 'Projects',
+    heading: 'Things in the making.',
+    emptyTitle: 'Nothing here yet.',
+    emptyBody: 'Projects will appear here as they take shape. For now, this space is left open.',
+    visit: 'Open project',
+  },
+  skills: {
+    kicker: 'Skills',
+    heading: 'Tools & craft.',
+    emptyTitle: 'Not listed yet.',
+    emptyBody: 'Skills will be added here when they’re ready.',
+  },
+  interests: {
+    kicker: 'Interests',
+    heading: 'A glimpse of the rest.',
+    languages: {
+      title: 'Languages',
+      greetings: ['Hello', 'Hola', 'Привет'],
+      english: 'English — learning it now.',
+      spanish: 'Spanish — on the list for later.',
+    },
+    games: {
+      title: 'Games',
+      text: 'What I play.',
+    },
+    music: {
+      title: 'Music',
+      text: 'Music, and this song in particular.',
+    },
+    themes: {
+      title: 'Always on my mind',
+      words: ['Freedom', 'Technology', 'Speed', 'Learning'],
+    },
+  },
+  quote: {
+    kicker: 'Direction',
+    secondary: 'My own direction, at my own pace.',
+    localized: '',
+  },
+  contact: {
+    kicker: 'Contact',
+    heading: 'Say hi.',
+    intro: 'The easiest way to reach me is through any of these.',
+    open: 'Open {name} in a new tab',
+    scanTitle: 'Take it with you',
+    scanBody: 'Scan to open this page on another device, or copy the link.',
+    qrAlt: 'QR code that opens this website',
+    qrLoading: 'Generating QR code…',
+    qrFailed: 'The QR code could not be generated. You can still copy the link.',
+    qrLocal:
+      'The QR code will appear once the site has a public address (see the README: VITE_SITE_URL).',
+    urlLabel: 'Page address',
+    copy: 'Copy link',
+    copied: 'Link copied.',
+    copyFailed: 'Couldn’t copy automatically. Select the address above and copy it manually.',
+    share: 'Share',
+    shared: 'Shared.',
+    shareUnavailable: 'Sharing isn’t available here — copy the link or use Telegram.',
+    shareFailed: 'Couldn’t open sharing. Copy the link or use Telegram instead.',
+    shareText: 'Sardor — Xamidovvv. Building from ideas.',
+    shareTelegram: 'Share via Telegram',
+  },
+  music: {
+    region: 'Music',
+    play: 'Play',
+    pause: 'Pause',
+    stop: 'Stop',
+    playing: 'Playing',
+    paused: 'Paused',
+    stopped: 'Stopped',
+    error: 'This track can’t be played right now.',
+    listenOn: 'Listen on {name}',
+    track: '{title} — {artist}',
+    ready: 'Player open',
+    loading: 'Loading player…',
+    embedHint: 'Opens Spotify’s official player. Nothing is loaded from Spotify until you press Play.',
+    embedTitle: 'Spotify player: {title} — {artist}',
+    embedSlow: 'The player is slow to load. You can listen on {name} instead.',
+    otherServices: 'Also on',
+  },
+  footer: {
+    note: 'Built from ideas.',
+    top: 'Back to top',
+  },
+};
+
+export type Dictionary = typeof en;
