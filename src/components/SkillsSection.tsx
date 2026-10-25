@@ -1,9 +1,9 @@
-import { skills } from '../config/site';
+import { skills, socials } from '../config/site';
 import { useI18n } from '../i18n/I18nProvider';
-import { Reveal, SectionFrame } from './ui';
+import { ArrowUpRight, ExternalLink, Reveal, SectionFrame } from './ui';
 
 export function SkillsSection() {
-  const { t, pick } = useI18n();
+  const { t, pick, fmt } = useI18n();
 
   return (
     <SectionFrame id="skills" kicker={t.skills.kicker} heading={t.skills.heading}>
@@ -14,18 +14,38 @@ export function SkillsSection() {
         </Reveal>
       ) : (
         <dl className="skills">
-          {skills.map((group, i) => (
-            <Reveal key={group.id} className="skills__group" delay={i * 80}>
-              <dt>{pick(group.title)}</dt>
-              <dd>
-                <ul>
-                  {group.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </dd>
-            </Reveal>
-          ))}
+          {skills.map((group, i) => {
+            const links = socials.filter((s) => group.profiles?.includes(s.id));
+            return (
+              <Reveal key={group.id} className="skills__group" delay={i * 90}>
+                <dt>{pick(group.title)}</dt>
+                <dd>
+                  <ul>
+                    {group.items.map((item) => (
+                      <li key={item.en}>{pick(item)}</li>
+                    ))}
+                  </ul>
+                  {group.note ? <p className="skills__note">{pick(group.note)}</p> : null}
+                  {links.length > 0 && (
+                    <p className="skills__links">
+                      <span>{t.skills.profiles}</span>
+                      {links.map((s) => (
+                        <ExternalLink
+                          key={s.id}
+                          href={s.url}
+                          className="textlink"
+                          label={fmt(t.contact.open, { name: s.label })}
+                        >
+                          {s.label}
+                          <ArrowUpRight />
+                        </ExternalLink>
+                      ))}
+                    </p>
+                  )}
+                </dd>
+              </Reveal>
+            );
+          })}
         </dl>
       )}
     </SectionFrame>

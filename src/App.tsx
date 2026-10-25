@@ -37,11 +37,11 @@ export function App() {
 
       <main id="main">
         <HeroSection />
+        <QuoteSection />
         <AboutSection />
         <ProjectsSection />
         <SkillsSection />
         <InterestsSection />
-        <QuoteSection />
         <ContactSection />
       </main>
 

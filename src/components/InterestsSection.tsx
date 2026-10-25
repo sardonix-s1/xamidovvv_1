@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState, type KeyboardEvent } from 'react';
 import { games } from '../config/site';
 import { useI18n } from '../i18n/I18nProvider';
 import { useReducedMotion } from '../hooks/useReducedMotion';
+import { copyText } from '../utils/clipboard';
 import { MusicControl } from './MusicControl';
 import { Reveal, SectionFrame } from './ui';
 
@@ -41,6 +42,89 @@ function Greetings({ words }: { words: readonly string[] }) {
   );
 }
 
+/** One tab per game; the panel shows the in-game ID / nickname (or says it is coming soon). */
+function GameTabs() {
+  const { t, pick } = useI18n();
+  const [selected, setSelected] = useState(0);
+  const [note, setNote] = useState('');
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const g = t.interests.games;
+  const game = games[selected];
+
+  const move = (to: number) => {
+    const next = (to + games.length) % games.length;
+    setSelected(next);
+    setNote('');
+    tabRefs.current[next]?.focus();
+  };
+
+  const onKeyDown = (e: KeyboardEvent) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      move(selected + 1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      move(selected - 1);
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      move(0);
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      move(games.length - 1);
+    }
+  };
+
+  const onCopy = async () => {
+    if (!game.handle) return;
+    setNote((await copyText(game.handle)) ? g.copied : g.copyFailed);
+  };
+
+  return (
+    <div className="gametabs">
+      <div className="gametabs__list" role="tablist" aria-label={g.tabs} onKeyDown={onKeyDown} lang="en">
+        {games.map((item, i) => (
+          <button
+            key={item.id}
+            ref={(el: HTMLButtonElement | null) => {
+              tabRefs.current[i] = el;
+            }}
+            type="button"
+            role="tab"
+            id={`game-tab-${item.id}`}
+            aria-selected={selected === i}
+            aria-controls="game-panel"
+            tabIndex={selected === i ? 0 : -1}
+            className="gametabs__tab"
+            onClick={() => {
+              setSelected(i);
+              setNote('');
+            }}
+          >
+            {item.name}
+          </button>
+        ))}
+      </div>
+
+      <div id="game-panel" role="tabpanel" aria-labelledby={`game-tab-${game.id}`} className="gametabs__panel" tabIndex={0}>
+        <p className="gametabs__label">{pick(game.handleLabel)}</p>
+        {game.handle ? (
+          <div className="gametabs__row">
+            <code className="gametabs__handle">{game.handle}</code>
+            <button type="button" className="btn" onClick={onCopy}>
+              {g.copy}
+            </button>
+          </div>
+        ) : (
+          <p className="gametabs__pending">{g.pending}</p>
+        )}
+        <p className="gametabs__note" role="status">
+          {note}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export function InterestsSection() {
   const { t } = useI18n();
   const i = t.interests;
@@ -51,20 +135,20 @@ export function InterestsSection() {
         <Reveal className="interest interest--lang" delay={60}>
           <h3 className="interest__title">{i.languages.title}</h3>
           <Greetings words={i.languages.greetings} />
-          <ul className="plain-list">
-            <li>{i.languages.english}</li>
-            <li>{i.languages.spanish}</li>
+          <ul className="langlist">
+            {i.languages.list.map(([name, note]) => (
+              <li key={name}>
+                <span className="langlist__name">{name}</span>
+                <span className="langlist__note">{note}</span>
+              </li>
+            ))}
           </ul>
         </Reveal>
 
         <Reveal className="interest interest--games" delay={140}>
           <h3 className="interest__title">{i.games.title}</h3>
           <p className="interest__text">{i.games.text}</p>
-          <ul className="games" lang="en">
-            {games.map((game) => (
-              <li key={game}>{game}</li>
-            ))}
-          </ul>
+          <GameTabs />
         </Reveal>
 
         <Reveal className="interest interest--music" delay={220}>

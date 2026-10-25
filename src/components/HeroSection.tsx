@@ -11,11 +11,11 @@ export function HeroSection() {
       <div className="container hero__inner">
         <p className="hero__brand rise" style={{ '--i': 0 } as CSSProperties}>
           <span className="hero__dash" aria-hidden="true" />
-          {person.brand}
+          {person.name}
         </p>
 
         <h1 id="hero-title" className="hero__name rise" style={{ '--i': 1 } as CSSProperties}>
-          {person.name}
+          {person.brand}
         </h1>
 
         <p className="hero__tagline rise" lang="en" style={{ '--i': 2 } as CSSProperties}>

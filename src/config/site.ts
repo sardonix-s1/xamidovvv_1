@@ -110,29 +110,72 @@ export interface Project {
 export const projects: readonly Project[] = [];
 
 /**
- * SKILLS — empty on purpose (no invented skills, no percentages). Example:
+ * SKILLS — only things the owner has confirmed. Each group has a title, a list of
+ * items, an optional note and optional links to the profiles where the work lives.
+ * Example group:
  *
- *   { id: 'web', title: { en: 'Web', ru: 'Веб' }, items: ['HTML', 'CSS'] },
+ *   { id: 'web', title: { en: 'Web', ru: 'Веб' }, items: [{ en: 'HTML', ru: 'HTML' }] },
  */
 export interface SkillGroup {
   id: string;
   title: Localized;
-  items: string[];
+  items: Localized[];
+  note?: Localized;
+  /** which of the social profiles show this group's work */
+  profiles?: SocialLink['id'][];
 }
 
-export const skills: readonly SkillGroup[] = [];
+export const skills: readonly SkillGroup[] = [
+  {
+    id: 'video',
+    title: { en: 'Video editing', ru: 'Видеомонтаж' },
+    items: [
+      { en: 'CapCut on phone', ru: 'CapCut на телефоне' },
+      { en: 'CapCut on PC', ru: 'CapCut на ПК' },
+    ],
+    note: {
+      en: 'Solid experience on both. Plenty of my edits are on my Instagram and TikTok.',
+      ru: 'Хороший опыт и там, и там. Много моих работ — в Instagram и TikTok.',
+    },
+    profiles: ['instagram', 'tiktok'],
+  },
+  {
+    id: 'learning',
+    title: { en: 'Learning now', ru: 'Изучаю сейчас' },
+    items: [
+      {
+        en: 'AI — to turn my ideas into reality',
+        ru: 'ИИ — чтобы воплощать свои идеи в реальность',
+      },
+    ],
+  },
+];
 
-/** Games shown in the Interests section (confirmed by the owner). */
-export const games: readonly string[] = ['PUBG Mobile', 'Counter-Strike 2', 'Brawl Stars'];
+/**
+ * Games shown in the Interests tabs. `handle` is the in-game ID / nickname —
+ * leave it out until you want it shown (the tab then says it is coming soon).
+ */
+export interface Game {
+  id: string;
+  name: string;
+  handleLabel: Localized;
+  handle?: string;
+}
+
+export const games: readonly Game[] = [
+  { id: 'pubg', name: 'PUBG Mobile', handleLabel: { en: 'Player ID', ru: 'ID игрока' } },
+  { id: 'cs2', name: 'Counter-Strike 2', handleLabel: { en: 'Nickname', ru: 'Ник' } },
+  { id: 'brawl', name: 'Brawl Stars', handleLabel: { en: 'Nickname', ru: 'Ник' } },
+];
 
 /** Section ids, in page order. */
 export const SECTION_IDS = [
   'hero',
+  'quote',
   'about',
   'projects',
   'skills',
   'interests',
-  'quote',
   'contact',
 ] as const;
 export type SectionId = (typeof SECTION_IDS)[number];

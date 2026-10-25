@@ -34,7 +34,6 @@ export const en = {
     paragraphs: [
       'Online, I’m Xamidovvv.',
       'I like learning new things, technology, games and music — and I like watching an idea slowly turn into something real.',
-      'This page is a small, personal corner of the internet. It will grow as I do.',
     ],
   },
   projects: {
@@ -47,6 +46,7 @@ export const en = {
   skills: {
     kicker: 'Skills',
     heading: 'Tools & craft.',
+    profiles: 'See the work on',
     emptyTitle: 'Not listed yet.',
     emptyBody: 'Skills will be added here when they’re ready.',
   },
@@ -55,13 +55,22 @@ export const en = {
     heading: 'A glimpse of the rest.',
     languages: {
       title: 'Languages',
-      greetings: ['Hello', 'Hola', 'Привет'],
-      english: 'English — learning it now.',
-      spanish: 'Spanish — on the list for later.',
+      greetings: ['Salom', 'Привет', 'Hello', 'Hola'],
+      list: [
+        ['Uzbek', 'native'],
+        ['Russian', 'second language'],
+        ['English', 'third language, still learning'],
+        ['Spanish', 'on the list for later'],
+      ] as [string, string][],
     },
     games: {
       title: 'Games',
       text: 'What I play.',
+      tabs: 'Choose a game',
+      pending: 'Coming soon — I’ll add it here.',
+      copy: 'Copy',
+      copied: 'Copied.',
+      copyFailed: 'Couldn’t copy — select and copy it manually.',
     },
     music: {
       title: 'Music',

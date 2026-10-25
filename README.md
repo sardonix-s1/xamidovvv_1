@@ -22,9 +22,11 @@ npm run preview    # serve dist/ locally
 | Colours, type, spacing | `src/styles/global.css` (tokens at the top) |
 | Particle scene per section | `src/scene/engine.ts` (`MOODS` table) |
 
-**Placeholders to personalise:** About text (short, honest starter copy), Projects (empty state until you add entries),
-Skills (empty state), the secondary line under the tagline, and `public/og.png` (share preview; replace if you want).
-Nothing invented: no skills, projects, achievements or contacts were added.
+**Still to fill in (nothing is invented):**
+- **Projects** — `projects` in `src/config/site.ts` (empty state until entries exist; `url` is optional, so a project with only a name works).
+- **Games** — set `handle` on each entry of `games` (PUBG Mobile ID, Counter-Strike nickname, Brawl Stars nickname). Until then the tab says "Coming soon".
+- **Skills** — CapCut video editing and "learning AI" are in; video samples can be added later.
+- `public/og.png` — share preview (neutral palette, "Xamidovvv" as the title).
 
 ## Public URL → QR code, copy, share, previews
 

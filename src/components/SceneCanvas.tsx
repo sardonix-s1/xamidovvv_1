@@ -45,6 +45,9 @@ export function SceneCanvas({ section }: Props) {
       if (e.pointerType !== 'mouse') return;
       engine.setPointer((e.clientX / window.innerWidth) * 2 - 1, (e.clientY / window.innerHeight) * 2 - 1);
     };
+    const onLeave = (e: MouseEvent) => {
+      if (!e.relatedTarget) engine.setPointer(null, null);
+    };
     const onScroll = () => {
       const max = document.documentElement.scrollHeight - window.innerHeight;
       engine.setScroll(max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0);
@@ -54,6 +57,7 @@ export function SceneCanvas({ section }: Props) {
     window.addEventListener('resize', onResize);
     window.addEventListener('pointermove', onPointer, { passive: true });
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('mouseout', onLeave);
     document.addEventListener('visibilitychange', onVisibility);
     onScroll();
     engine.start();
@@ -62,6 +66,7 @@ export function SceneCanvas({ section }: Props) {
       window.removeEventListener('resize', onResize);
       window.removeEventListener('pointermove', onPointer);
       window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('mouseout', onLeave);
       document.removeEventListener('visibilitychange', onVisibility);
       engine.dispose();
       engineRef.current = null;
