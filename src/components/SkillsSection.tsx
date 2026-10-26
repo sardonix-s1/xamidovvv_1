@@ -42,6 +42,23 @@ export function SkillsSection() {
                       ))}
                     </p>
                   )}
+                  {group.samples?.length ? (
+                    <div className="skills__samples">
+                      {group.samples.map((v) => (
+                        <figure key={v.src} className="sample">
+                          <video
+                            controls
+                            playsInline
+                            preload="none"
+                            poster={v.poster}
+                            src={v.src}
+                            aria-label={pick(v.title)}
+                          />
+                          <figcaption>{pick(v.title)}</figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  ) : null}
                 </dd>
               </Reveal>
             );

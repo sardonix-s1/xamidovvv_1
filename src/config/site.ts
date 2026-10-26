@@ -107,7 +107,30 @@ export interface Project {
   status?: Localized;
 }
 
-export const projects: readonly Project[] = [];
+export const projects: readonly Project[] = [
+  {
+    id: 'ielts-coach',
+    name: { en: 'IELTS Speaking Coach', ru: 'IELTS Speaking Coach' },
+    description: {
+      en: 'A speaking-practice tool for IELTS, built together with Claude.',
+      ru: 'Инструмент для тренировки устной части IELTS, сделан вместе с Claude.',
+    },
+    url: 'https://ieltsspeaking-coach.netlify.app',
+    status: {
+      en: 'Not released yet — maybe in about 2 weeks',
+      ru: 'Ещё не выпущен — возможно, примерно через 2 недели',
+    },
+  },
+  {
+    id: 'jarvis',
+    name: { en: 'Jarvis', ru: 'Jarvis' },
+    description: {
+      en: 'An AI assistant on my own PC that does everything I want — and a childhood dream of mine.',
+      ru: 'ИИ-ассистент на моём компьютере, который делает всё, что мне нужно, — и моя детская мечта.',
+    },
+    status: { en: 'In progress · no public link', ru: 'В работе · публичной ссылки нет' },
+  },
+];
 
 /**
  * SKILLS — only things the owner has confirmed. Each group has a title, a list of
@@ -123,6 +146,8 @@ export interface SkillGroup {
   note?: Localized;
   /** which of the social profiles show this group's work */
   profiles?: SocialLink['id'][];
+  /** short sample videos stored in /public/video */
+  samples?: { src: string; poster: string; title: Localized }[];
 }
 
 export const skills: readonly SkillGroup[] = [
@@ -138,6 +163,13 @@ export const skills: readonly SkillGroup[] = [
       ru: 'Хороший опыт и там, и там. Много моих работ — в Instagram и TikTok.',
     },
     profiles: ['instagram', 'tiktok'],
+    samples: [
+      {
+        src: '/video/edit-1.mp4',
+        poster: '/video/edit-1.jpg',
+        title: { en: 'Edit sample', ru: 'Пример монтажа' },
+      },
+    ],
   },
   {
     id: 'learning',
@@ -163,9 +195,9 @@ export interface Game {
 }
 
 export const games: readonly Game[] = [
-  { id: 'pubg', name: 'PUBG Mobile', handleLabel: { en: 'Player ID', ru: 'ID игрока' } },
-  { id: 'cs2', name: 'Counter-Strike 2', handleLabel: { en: 'Nickname', ru: 'Ник' } },
-  { id: 'brawl', name: 'Brawl Stars', handleLabel: { en: 'Nickname', ru: 'Ник' } },
+  { id: 'pubg', name: 'PUBG Mobile', handle: '51841179442', handleLabel: { en: 'Player ID', ru: 'ID игрока' } },
+  { id: 'cs2', name: 'Counter-Strike 2', handle: 'sardonix.acc', handleLabel: { en: 'Nickname', ru: 'Ник' } },
+  { id: 'brawl', name: 'Brawl Stars', handle: 'sardonixacc', handleLabel: { en: 'Nickname', ru: 'Ник' } },
 ];
 
 /** Section ids, in page order. */

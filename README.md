@@ -23,9 +23,8 @@ npm run preview    # serve dist/ locally
 | Particle scene per section | `src/scene/engine.ts` (`MOODS` table) |
 
 **Still to fill in (nothing is invented):**
-- **Projects** — `projects` in `src/config/site.ts` (empty state until entries exist; `url` is optional, so a project with only a name works).
-- **Games** — set `handle` on each entry of `games` (PUBG Mobile ID, Counter-Strike nickname, Brawl Stars nickname). Until then the tab says "Coming soon".
-- **Skills** — CapCut video editing and "learning AI" are in; video samples can be added later.
+- **Projects** — `projects` in `src/config/site.ts` (`url` is optional; Jarvis has none).
+- **Skills** — CapCut and "learning AI" are in; more sample videos go in `public/video` and `samples` in `site.ts`.
 - `public/og.png` — share preview (neutral palette, "Xamidovvv" as the title).
 
 ## Public URL → QR code, copy, share, previews
