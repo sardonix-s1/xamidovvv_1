@@ -775,3 +775,4 @@ main, .footer { position: relative; z-index: 2; }
 .sample{margin:0;width:min(100%,360px)}
 .sample video{display:block;width:100%;aspect-ratio:4/3;background:#000;border:1px solid var(--line,rgba(236,238,241,.14));border-radius:12px}
 .sample figcaption{margin-top:10px;font:400 12px/1.4 var(--mono,ui-monospace,monospace);letter-spacing:.14em;text-transform:uppercase;color:var(--text-3,#8a8c92)}
+.sample video:focus,.sample video:focus-visible,.sample video:focus-within{outline:2px solid var(--ice,#e9e7e2);outline-offset:3px}
