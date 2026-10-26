@@ -57,35 +57,6 @@ export const configuredSiteUrl: string = (import.meta.env.VITE_SITE_URL ?? '')
   .replace(/\/+$/, '');
 
 /**
- * Music. No audio file is bundled with this site.
- *
- * The track "Зима" by Вектор А (released 2026) is offered through Spotify's
- * official embed. Nothing from Spotify is loaded until the visitor presses
- * Play, and nothing plays by itself.
- *
- *  • `audioSrc` — OPTIONAL. Only set this to a file you have the rights to
- *    publish (e.g. put "zima.mp3" in /public/audio and use '/audio/zima.mp3').
- *    When set it takes priority: the visitor gets play / pause / stop.
- *  • `spotifyTrackId` — drives the official embed. Set it to '' to turn it off.
- *  • `sourceUrl` — plain "listen on" link, always shown as a fallback.
- *  • `otherSources` — extra links to the artist on other services.
- */
-export const music = {
-  title: 'Зима',
-  artist: 'Вектор А',
-  audioSrc: '' as string,
-  spotifyTrackId: '0Fre3PpmWIFIYBgQv9w0x1',
-  sourceUrl: 'https://open.spotify.com/track/0Fre3PpmWIFIYBgQv9w0x1',
-  sourceName: 'Spotify',
-  otherSources: [
-    {
-      name: 'Apple Music',
-      url: 'https://music.apple.com/us/artist/%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80-%D0%B0/1568300689',
-    },
-  ] as readonly { name: string; url: string }[],
-};
-
-/**
  * PROJECTS — empty on purpose: the page shows a designed empty state until
  * you add real entries. Example (copy, uncomment, edit):
  *
@@ -172,32 +143,29 @@ export const skills: readonly SkillGroup[] = [
     ],
   },
   {
-    id: 'learning',
-    title: { en: 'Learning now', ru: 'Изучаю сейчас' },
+    id: 'dev',
+    title: { en: 'Development', ru: 'Разработка' },
     items: [
-      {
-        en: 'AI — to turn my ideas into reality',
-        ru: 'ИИ — чтобы воплощать свои идеи в реальность',
-      },
+      { en: 'Learning C++', ru: 'Изучаю C++' },
+      { en: 'Building with AI (Claude)', ru: 'Создаю с помощью ИИ (Claude)' },
     ],
+    note: {
+      en: 'Still a student of programming — AI helps me turn my ideas into working things.',
+      ru: 'Я ещё учусь программированию — ИИ помогает превращать мои идеи в рабочие вещи.',
+    },
   },
-];
-
-/**
- * Games shown in the Interests tabs. `handle` is the in-game ID / nickname —
- * leave it out until you want it shown (the tab then says it is coming soon).
- */
-export interface Game {
-  id: string;
-  name: string;
-  handleLabel: Localized;
-  handle?: string;
-}
-
-export const games: readonly Game[] = [
-  { id: 'pubg', name: 'PUBG Mobile', handle: '51841179442', handleLabel: { en: 'Player ID', ru: 'ID игрока' } },
-  { id: 'cs2', name: 'Counter-Strike 2', handle: 'sardonix.acc', handleLabel: { en: 'Nickname', ru: 'Ник' } },
-  { id: 'brawl', name: 'Brawl Stars', handle: 'sardonixacc', handleLabel: { en: 'Nickname', ru: 'Ник' } },
+  {
+    id: 'tools',
+    title: { en: 'Tools', ru: 'Инструменты' },
+    items: [
+      { en: 'CapCut', ru: 'CapCut' },
+      { en: 'Claude', ru: 'Claude' },
+    ],
+    note: {
+      en: 'Next up: DaVinci Resolve.',
+      ru: 'Дальше — DaVinci Resolve.',
+    },
+  },
 ];
 
 /** Section ids, in page order. */
@@ -207,7 +175,8 @@ export const SECTION_IDS = [
   'about',
   'projects',
   'skills',
-  'interests',
+  'services',
+  'now',
   'contact',
 ] as const;
 export type SectionId = (typeof SECTION_IDS)[number];

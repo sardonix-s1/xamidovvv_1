@@ -15,6 +15,9 @@ export function AboutSection() {
           {text}
         </Reveal>
       ))}
+      <Reveal as="p" className="about__place" delay={340}>
+        {t.about.location}
+      </Reveal>
     </SectionFrame>
   );
 }

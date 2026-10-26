@@ -17,7 +17,7 @@ npm run preview    # serve dist/ locally
 
 | What | Where |
 | --- | --- |
-| Name, brand, tagline, social links, music, projects, skills, games | `src/config/site.ts` |
+| Name, brand, tagline, social links, projects, skills | `src/config/site.ts` |
 | All page text and UI labels (English / Russian) | `src/i18n/en.ts`, `src/i18n/ru.ts` |
 | Colours, type, spacing | `src/styles/global.css` (tokens at the top) |
 | Particle scene per section | `src/scene/engine.ts` (`MOODS` table) |
@@ -34,12 +34,6 @@ It drives the QR code, copy/share and the absolute `og:url` / `og:image` / canon
 Without it the QR panel shows an explanatory state locally (no fake URL is ever used).
 If it's unset but the site is served from a public host, the live address is used.
 
-## Music
-
-No audio is bundled. "Зима" — Вектор А is offered through **Spotify's official embed**
-(track verified: released 2026-01-30). Nothing from Spotify loads until a visitor presses Play; Stop unmounts the player.
-A "Listen on Spotify" link and an Apple Music artist link are always shown. If you ever get the rights to a file, set
-`music.audioSrc` (e.g. `/audio/zima.mp3`) and the player switches to native play / pause / stop.
 
 ## Deploy free (Cloudflare Pages)
 

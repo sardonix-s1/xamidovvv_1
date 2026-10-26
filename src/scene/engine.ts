@@ -15,7 +15,7 @@ import type { SectionId } from '../config/site';
  *   about      open dust
  *   projects   a lattice
  *   skills     the lattice loosening
- *   interests  streams with a direction
+ *   services   streams with a direction
  *   contact    quiet dust and floor
  *
  * Monochrome on purpose: soft white on near-black.
@@ -55,7 +55,8 @@ const MOODS: Record<SectionId, Mood> = {
   about: { weights: [0, 1, 0, 0, 0], alpha: 0.6, links: 0.7, grid: 0.35, rings: 0.3, spin: 0.025, offsetX: 0, zoom: 1, flow: 0, lock: 0 },
   projects: { weights: [0, 0, 1, 0, 0], alpha: 0.8, links: 0.8, grid: 0.7, rings: 0.4, spin: 0.045, offsetX: 0.16, zoom: 0.9, flow: 0, lock: 0 },
   skills: { weights: [0, 0.45, 0.55, 0, 0], alpha: 0.6, links: 0.7, grid: 0.5, rings: 0.3, spin: 0.035, offsetX: 0.1, zoom: 1, flow: 0, lock: 0 },
-  interests: { weights: [0, 0, 0, 1, 0], alpha: 0.5, links: 0.35, grid: 0.4, rings: 0.25, spin: 0.012, offsetX: 0, zoom: 1, flow: 0.22, lock: 0 },
+  services: { weights: [0, 0, 0, 1, 0], alpha: 0.5, links: 0.35, grid: 0.4, rings: 0.25, spin: 0.012, offsetX: 0, zoom: 1, flow: 0.1, lock: 0 },
+  now: { weights: [0, 0.7, 0.3, 0, 0], alpha: 0.5, links: 0.6, grid: 0.4, rings: 0.3, spin: 0.02, offsetX: 0, zoom: 1, flow: 0, lock: 0 },
   contact: { weights: [0, 0.8, 0, 0, 0.2], alpha: 0.55, links: 0.8, grid: 0.8, rings: 0.5, spin: 0.02, offsetX: 0, zoom: 1, flow: 0, lock: 0 },
 };
 

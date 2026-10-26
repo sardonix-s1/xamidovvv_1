@@ -4,7 +4,8 @@ import { ContactSection } from './components/ContactSection';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { Footer } from './components/Footer';
 import { HeroSection } from './components/HeroSection';
-import { InterestsSection } from './components/InterestsSection';
+import { NowSection } from './components/NowSection';
+import { ServicesSection } from './components/ServicesSection';
 import { Navigation } from './components/Navigation';
 import { ProjectsSection } from './components/ProjectsSection';
 import { QuoteSection } from './components/QuoteSection';
@@ -41,7 +42,8 @@ export function App() {
         <AboutSection />
         <ProjectsSection />
         <SkillsSection />
-        <InterestsSection />
+        <ServicesSection />
+        <NowSection />
         <ContactSection />
       </main>
 

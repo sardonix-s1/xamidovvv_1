@@ -3,7 +3,7 @@ import { person, type SectionId } from '../config/site';
 import { useI18n } from '../i18n/I18nProvider';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
-const LINKS = ['about', 'projects', 'skills', 'interests', 'contact'] as const;
+const LINKS = ['about', 'projects', 'skills', 'services', 'now', 'contact'] as const;
 
 export function Navigation({ active }: { active: SectionId }) {
   const { t } = useI18n();
