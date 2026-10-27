@@ -48,6 +48,25 @@ export const socials: readonly SocialLink[] = [
   },
 ];
 
+/** Own channels (separate from the main profiles). Add more entries here. */
+export interface Channel {
+  id: string;
+  name: string;
+  handle: string;
+  url: string;
+  description: Localized;
+}
+
+export const channels: readonly Channel[] = [
+  {
+    id: 'telegram-creative',
+    name: 'как говорится:',
+    handle: '@gIamuur',
+    url: 'https://t.me/gIamuur',
+    description: { en: 'Telegram channel — my creative work.', ru: 'Telegram-канал — моё творчество.' },
+  },
+];
+
 /**
  * Public URL of the deployed site. Set VITE_SITE_URL at build time (see README).
  * Leave empty until the site is deployed — nothing fake is ever used.

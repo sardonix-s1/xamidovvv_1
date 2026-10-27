@@ -82,6 +82,7 @@ export const en = {
   },
   contact: {
     kicker: 'Contact',
+    channels: 'Channels',
     heading: 'Say hi.',
     intro: 'The easiest way to reach me is through any of these.',
     open: 'Open {name} in a new tab',

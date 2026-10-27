@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { socials } from '../config/site';
+import { channels, socials } from '../config/site';
 import { useI18n } from '../i18n/I18nProvider';
 import { resolveSiteUrl } from '../utils/siteUrl';
 import { QRCodePanel } from './QRCodePanel';
@@ -7,7 +7,7 @@ import { ShareControls } from './ShareControls';
 import { ArrowUpRight, ExternalLink, Reveal, SectionFrame } from './ui';
 
 export function ContactSection() {
-  const { t, fmt } = useI18n();
+  const { t, fmt, pick } = useI18n();
   const site = useMemo(() => resolveSiteUrl(), []);
   // Locally there is no public address, so copy/share fall back to the current page.
   const shareUrl = site.url ?? window.location.href.split('#')[0];
@@ -29,6 +29,25 @@ export function ContactSection() {
           </Reveal>
         ))}
       </ul>
+
+      {channels.length > 0 && (
+        <>
+          <Reveal as="p" className="contacts__sub" delay={200}>
+            {t.contact.channels}
+          </Reveal>
+          <ul className="contacts">
+            {channels.map((ch, i) => (
+              <Reveal as="li" key={ch.id} delay={240 + i * 70}>
+                <ExternalLink href={ch.url} className="contact-row" label={`${ch.name} — ${pick(ch.description)}`}>
+                  <span className="contact-row__label">{ch.name}</span>
+                  <span className="contact-row__handle">{ch.handle}</span>
+                  <ArrowUpRight />
+                </ExternalLink>
+              </Reveal>
+            ))}
+          </ul>
+        </>
+      )}
 
       <Reveal className="takeaway" delay={200}>
         <div className="takeaway__text">

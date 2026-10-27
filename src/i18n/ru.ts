@@ -84,6 +84,7 @@ export const ru: Dictionary = {
   },
   contact: {
     kicker: 'Контакты',
+    channels: 'Каналы',
     heading: 'Напишите мне.',
     intro: 'Проще всего связаться со мной через любую из этих ссылок.',
     open: 'Открыть {name} в новой вкладке',
